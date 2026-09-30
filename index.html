@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DubaiTrail Travels</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #f4c542;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #f4c542;
+        }
+
+        .hero {
+            min-height: 600px;
+            padding: 100px 8%;
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.55)
+                ),
+                linear-gradient(135deg, #0f766e, #d97706);
+
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: #f4c542;
+            color: #111827;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #e0aa18;
+        }
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 40px;
+            color: #111827;
+        }
+
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #c28b00;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .about {
+            background: #fff7e0;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .booking {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .booking input,
+        .booking select {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .booking button {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        #message {
+            margin-top: 20px;
+            text-align: center;
+            color: #087f5b;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer span {
+            color: #f4c542;
+        }
+
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .packages,
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <div class="logo">
+            🇦🇪 DubaiTrail Travels
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#packages">Tours</a>
+            <a href="#about">About Dubai</a>
+            <a href="#booking">Book</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Discover Dubai</h1>
+
+            <p>
+                Experience the magic of Dubai with unforgettable
+                city tours, luxury experiences, desert adventures,
+                beautiful beaches and world-famous attractions.
+            </p>
+
+            <button class="btn" onclick="scrollToBooking()">
+                Plan My Dubai Trip
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Packages -->
+    <section id="packages">
+
+        <h2 class="section-title">
+            Popular Dubai Experiences
+        </h2>
+
+        <div class="packages">
+
+            <div class="card">
+
+                <div class="card-icon">🏙️</div>
+
+                <h3>Dubai City Explorer</h3>
+
+                <p>
+                    Discover Burj Khalifa, Dubai Mall, Downtown Dubai
+                    and the spectacular modern skyline.
+                </p>
+
+                <div class="price">
+                    From AED 299
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🏜️</div>
+
+                <h3>Desert Safari Adventure</h3>
+
+                <p>
+                    Enjoy dune bashing, a desert sunset, camel riding,
+                    traditional entertainment and an Arabian dinner.
+                </p>
+
+                <div class="price">
+                    From AED 249
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🏖️</div>
+
+                <h3>Dubai Beach Escape</h3>
+
+                <p>
+                    Relax beside the Arabian Gulf and enjoy Dubai's
+                    beautiful beaches, resorts and waterfront attractions.
+                </p>
+
+                <div class="price">
+                    From AED 199
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🕌</div>
+
+                <h3>Culture & Heritage Tour</h3>
+
+                <p>
+                    Explore Old Dubai, traditional markets, historic
+                    neighborhoods and Emirati culture.
+                </p>
+
+                <div class="price">
+                    From AED 179
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🛥️</div>
+
+                <h3>Dubai Marina Cruise</h3>
+
+                <p>
+                    Cruise through Dubai Marina and enjoy stunning
+                    views of skyscrapers, waterfronts and landmarks.
+                </p>
+
+                <div class="price">
+                    From AED 159
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">✨</div>
+
+                <h3>Luxury Dubai Experience</h3>
+
+                <p>
+                    Enjoy a premium Dubai experience with luxury
+                    dining, private tours and unforgettable moments.
+                </p>
+
+                <div class="price">
+                    From AED 599
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Why Visit Dubai -->
+    <section class="about" id="about">
+
+        <h2 class="section-title">
+            Why Visit Dubai?
+        </h2>
+
+        <p>
+            Dubai combines futuristic architecture, Arabian culture,
+            luxury shopping, beautiful beaches and exciting desert
+            adventures. Whether you are visiting for the first time,
+            travelling with family or looking for a luxury holiday,
+            Dubai offers experiences for every type of international
+            traveller.
+        </p>
+
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">🏙️</div>
+
+                <h3>Iconic Attractions</h3>
+
+                <p>
+                    See world-famous landmarks and experience
+                    Dubai's spectacular skyline.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">🏜️</div>
+
+                <h3>Desert Adventures</h3>
+
+                <p>
+                    Experience the Arabian Desert with safari tours,
+                    dune adventures and traditional experiences.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">🌍</div>
+
+                <h3>International Friendly</h3>
+
+                <p>
+                    We help international visitors plan their Dubai
+                    holiday with simple and convenient travel options.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Travel Information -->
+    <section>
+
+        <h2 class="section-title">
+            Dubai Travel Information
+        </h2>
+
+        <div class="packages">
+
+            <div class="card">
+
+                <div class="card-icon">🛂</div>
+
+                <h3>Visa Information</h3>
+
+                <p>
+                    Visa requirements can vary depending on your
+                    nationality. Check the latest UAE entry requirements
+                    before travelling.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">💰</div>
+
+                <h3>Currency</h3>
+
+                <p>
+                    The official currency of the UAE is the
+                    United Arab Emirates Dirham (AED).
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">☀️</div>
+
+                <h3>Best Time to Visit</h3>
+
+                <p>
+                    Dubai is a year-round destination. Many visitors
+                    prefer the cooler months for outdoor activities
+                    and desert experiences.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Booking -->
+    <section id="booking">
+
+        <h2 class="section-title">
+            Plan Your Dubai Trip
+        </h2>
+
+        <div class="booking">
+
+            <form id="bookingForm">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Full Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <select id="country" required>
+
+                    <option value="">
+                        Select Your Country
+                    </option>
+
+                    <option value="United Kingdom">
+                        United Kingdom
+                    </option>
+
+                    <option value="United States">
+                        United States
+                    </option>
+
+                    <option value="Canada">
+                        Canada
+                    </option>
+
+                    <option value="Australia">
+                        Australia
+                    </option>
+
+                    <option value="Germany">
+                        Germany
+                    </option>
+
+                    <option value="France">
+                        France
+                    </option>
+
+                    <option value="Italy">
+                        Italy
+                    </option>
+
+                    <option value="Spain">
+                        Spain
+                    </option>
+
+                    <option value="India">
+                        India
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <select id="destination" required>
+
+                    <option value="">
+                        Choose Your Experience
+                    </option>
+
+                    <option value="Dubai City Explorer">
+                        Dubai City Explorer
+                    </option>
+
+                    <option value="Desert Safari Adventure">
+                        Desert Safari Adventure
+                    </option>
+
+                    <option value="Dubai Beach Escape">
+                        Dubai Beach Escape
+                    </option>
+
+                    <option value="Culture & Heritage Tour">
+                        Culture & Heritage Tour
+                    </option>
+
+                    <option value="Dubai Marina Cruise">
+                        Dubai Marina Cruise
+                    </option>
+
+                    <option value="Luxury Dubai Experience">
+                        Luxury Dubai Experience
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="date"
+                    id="date"
+                    required
+                >
+
+
+                <select id="travellers" required>
+
+                    <option value="">
+                        Number of Travellers
+                    </option>
+
+                    <option value="1">
+                        1 Traveller
+                    </option>
+
+                    <option value="2">
+                        2 Travellers
+                    </option>
+
+                    <option value="3-5">
+                        3–5 Travellers
+                    </option>
+
+                    <option value="6-10">
+                        6–10 Travellers
+                    </option>
+
+                    <option value="10+">
+                        More than 10
+                    </option>
+
+                </select>
+
+
+                <button class="btn" type="submit">
+                    Send Trip Request
+                </button>
+
+            </form>
+
+
+            <div id="message"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 <span>DubaiTrail Travels</span>
+            | Your Dubai Adventure Starts Here 🇦🇪
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function scrollToBooking() {
+
+            document
+                .getElementById("booking")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+        document
+            .getElementById("bookingForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const name =
+                    document.getElementById("name").value;
+
+                const destination =
+                    document.getElementById("destination").value;
+
+                const country =
+                    document.getElementById("country").value;
+
+                document.getElementById("message").innerText =
+                    "Thank you, " + name +
+                    "! Your Dubai trip request for the " +
+                    destination +
+                    " has been received. We will contact you with more details.";
+
+                this.reset();
+
+            });
+
+    </script>
+
+</body>
+</html>
